@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../interfaces';
 import { Observable } from 'rxjs';
+import { Store } from '@ngxs/store';
+import { CartSelectors, CartAction } from '../store';
 
 @Injectable()
 export class CartFacadeService {
-  constructor() {}
+  constructor(
+    private store: Store,
+    private cartSelectors: CartSelectors,
+  ) {}
 
   getCartProducts(): Observable<IProduct[]> {
-    // TODO: implement feature
+    return this.cartSelectors.cartProducts$;
   }
 
   addToCart(productId: IProduct['id']): void {
-    // TODO: implement feature
+    this.store.dispatch(new CartAction.AddToCart(productId));
   }
 
   removeFromCart(productId: IProduct['id']): void {
-    // TODO: implement feature
+    this.store.dispatch(new CartAction.RemoveFromCart(productId));
   }
 }
