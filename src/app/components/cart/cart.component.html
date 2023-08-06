@@ -1,0 +1,15 @@
+<ng-container *ngIf="(products$ | async) as products">
+  <ng-container
+    [ngTemplateOutlet]="products.length ? cartProducts : emptyState"
+    [ngTemplateOutletContext]="{ products }">
+  </ng-container>
+</ng-container>
+
+<ng-template #cartProducts let-products="products">
+  <div class="cart-product" *ngFor="let product of products">
+    <span>{{ product.name }}</span>
+    <button (click)="removeFromCart(product.id)">Remove from cart</button>
+  </div>
+</ng-template>
+
+<ng-template #emptyState>Empty cart</ng-template>

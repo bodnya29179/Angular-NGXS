@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #008080;
+}
+
+.container {
+  height: 100%;
+  margin: 20px;
+  background-color: #5f9ea0;
+}

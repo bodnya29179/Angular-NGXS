@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 20px;
+}
+
+.cart-product {
+  display: flex;
+
+  span {
+    width: 100%;
+    max-width: 100px;
+  }
+}

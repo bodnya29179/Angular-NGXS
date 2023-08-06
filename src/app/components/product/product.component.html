@@ -1,0 +1,13 @@
+<ng-container *ngIf="!isEditing">
+  <p class="product-name">{{ product.name }}</p>
+
+  <button *ngIf="!isEditing" (click)="toggleEditing()">Edit</button>
+  <button (click)="deleteProduct()">Delete</button>
+
+  <button (click)="addProductToCart()">Add to cart</button>
+</ng-container>
+
+<ng-container *ngIf="isEditing">
+  <input type="text" [(ngModel)]="productName" placeholder="Product name">
+  <button (click)="saveChanges()">Save</button>
+</ng-container>
